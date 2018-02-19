@@ -140,7 +140,6 @@ public class UserController {
     		@ApiParam(value = "Keyword like name , title, introduction, state, country") @RequestParam(required=false) String keyWord,
             @ApiParam(value = "Job Titles of the user")	@RequestParam(required = false)  List<Integer> jobTitles,
             @ApiParam(value = "Skills of the User") @RequestParam(required = false) List<Integer> skills,
-            @ApiParam(value = "Countries of the User") @RequestParam(required = false) List<String> countries,
             @ApiParam(value = "Status of the User") @Pattern(regexp="[AD]")  @RequestParam(required = false) String status,
     		@ApiParam(value = "User Role") @Pattern(regexp="[VOA]") @RequestParam(required = false) String role,
 			@ApiParam(value = "User Public Flag") @Pattern(regexp="[YN]") @RequestParam(required = false) String publishFlag,
@@ -150,8 +149,7 @@ public class UserController {
     	System.out.println("************** UserController.getUsers()" 
                 + ": keyWord=" + keyWord  
                 + "; jobTitles=" + jobTitles  
-                + "; skills=" + skills
-                + "; countries=" + countries  
+                + "; skills=" + skills  
                 + "; status=" + status  
                 + "; role=" + role  
                 + "; publishFlag=" + publishFlag  
@@ -159,7 +157,7 @@ public class UserController {
                 + "; size=" + size                  
                 + " **************");
     	
-        return userService.search(keyWord, jobTitles, skills, countries, status, role, publishFlag, page, size);
+        return userService.search(keyWord, jobTitles, skills, status, role, publishFlag, page, size);
     }
         
     @CrossOrigin
